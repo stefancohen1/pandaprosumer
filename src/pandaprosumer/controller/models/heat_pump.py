@@ -259,7 +259,6 @@ class HeatPumpController(BasicProsumerController):
         max_ramp_down_kw_per_s = self._get_element_param(prosumer, 'max_ramp_down_kw_per_s')
         delta_p = (p_comp_kw - self.p_comp_previous_kw)
         time_step_s = self.resol
-        print(f"Previous_p ={self.p_comp_previous_kw}, Heat Pump Calculation Max rampup={max_ramp_up_kw_per_s * time_step_s}, delta_p={delta_p}, time_step_s={time_step_s}")
         if max_ramp_up_kw_per_s and delta_p > max_ramp_up_kw_per_s * time_step_s:
              # Limit ramp up
             p_comp_kw = self.p_comp_previous_kw + max_ramp_up_kw_per_s * time_step_s
